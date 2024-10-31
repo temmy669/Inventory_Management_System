@@ -8,7 +8,6 @@
 - [Api Interaction](#API-INTERACTION)
 - [API Endpoints](#api-endpoints)
 - [Testing](#testing)
-- [License](#license)
 
 ## Introduction
 
