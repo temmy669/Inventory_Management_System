@@ -24,8 +24,7 @@ This is a RESTful API for an Inventory Management System that allows users to ma
 
 ## Features
 
-- User authentication and authorization
-- CRUD operations for products and categories
+- CRUD operations for products, suppliers and inventory
 - Inventory management
 - Docker support for easy deployment
 - Detailed API documentation
@@ -125,26 +124,27 @@ Your API should now be accessible at `http://127.0.0.1:8000/`
 
 ## API INTERRACTION
 
-You can use tools like Postman or curl to interact with the API endpoints. Make sure to include authentication tokens when required.
+You can use tools like Postman or curl to interact with and test the API endpoints.
 
 ## API Endpoints
 
 The following endpoints are available in the Inventory Management System API:
 
-| Endpoint                          | Method      | Description                                             | Authentication Required |
-|-----------------------------------|-------------|---------------------------------------------------------|-------------------------|
-| `/api/v1/products/`               | GET         | List all products with pagination and filtering options. | Yes                     |
-| `/api/v1/products/`               | POST        | Add a new product (name, description, price, supplier). | Yes                     |
-| `/api/v1/products/{id}/`          | PUT         | Update product details.                                 | Yes                     |
-| `/api/v1/products/{id}/`          | DELETE      | Remove a product.                                     | Yes                     |
-| `/api/v1/suppliers/`              | GET         | List all suppliers.                                    | Yes                     |
-| `/api/v1/suppliers/`              | POST        | Add a new supplier (name, contact info).              | Yes                     |
-| `/api/v1/suppliers/{id}/`         | PUT         | Update supplier details.                               | Yes                     |
-| `/api/v1/suppliers/{id}/`         | DELETE      | Remove a supplier.                                    | Yes                     |
-| `/api/v1/inventory/`              | GET         | Check inventory levels for each product.              | Yes                     |
-| `/api/v1/inventory/`              | POST        | Update inventory levels (product ID, quantity).       | Yes                     |
-| `/api/v1/inventory/generate-inventory-report/`| POST | To generate inventory reports                     |   Yes                    |
-| `/api/v1/inventory/generate-supplier-report/`| POST | To generate supplier performance reports            |          Yes             |
+| Endpoint                          | Method      | Description                                             | 
+|-----------------------------------|-------------|---------------------------------------------------------|
+| `/api/v1/products/`               | GET         | List all products with pagination and filtering options. |
+| `/api/v1/products/`               | POST        | Add a new product (name, description, price, supplier). | 
+| `/api/v1/products/{id}/`          | PUT         | Update product details.                                 | 
+| `/api/v1/products/{id}/`          | DELETE      | Remove a product.                                     | 
+| `/api/v1/suppliers/`              | GET         | List all suppliers.                                    |
+| `/api/v1/suppliers/`              | POST        | Add a new supplier (name, contact info).              | 
+| `/api/v1/suppliers/{id}/`         | PUT         | Update supplier details.                               |
+| `/api/v1/suppliers/{id}/`         | DELETE      | Remove a supplier.                                    | 
+| `/api/v1/inventory/`              | GET         | Check inventory levels for each product.              | 
+| `/api/v1/inventory/`              | POST        | Update inventory levels (product ID, quantity).       | 
+| `/api/v1/inventory/generate-inventory-report/`| POST | To generate inventory reports                     |
+| `/api/v1/inventory/generate-supplier-report/`| POST | To generate supplier performance reports            |
+| `/api/v1/notifications/`           |  GET    |   To list the otifications                                 |  
 
 ### Full API documentation can be found at `http://127.0.0.1:8000/swagger/`
 Ensure that the Django server is running
