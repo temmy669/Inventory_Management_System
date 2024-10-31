@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from .serializers import ProductSerializer
 from .models import Product
 from suppliers.models import Supplier
@@ -79,3 +80,13 @@ def upload_product_csv(request):
         return JsonResponse({'error': 'The uploaded file is corrupted or not a valid CSV.'}, status=status.HTTP_400_BAD_REQUEST)
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['name', 'price']  # Fields you want to allow filtering on
+
+    search_fields = ['name', 'description']  # Fields to enable search on
+
+    ordering_fields = ['name', 'price']  # Fields to enable ordering on

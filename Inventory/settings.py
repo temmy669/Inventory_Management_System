@@ -152,3 +152,7 @@ CELERY_TIMEZONE = 'UTC'
 LOW_STOCK_ALERT_EMAIL = 'alert@gmail.com'
 INVENTORY_MANAGER_EMAILS = ['inventory_manager@yourapp.com']
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,  # Number of items per page
+}
