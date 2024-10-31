@@ -12,7 +12,7 @@ Django==5.1.2
 djangorestframework==3.15.2
 drf-yasg==1.21.8
 inflection==0.5.1
-kali-tweaks==2023.3.2
+#kali-tweaks==2023.3.2
 kombu==5.4.2
 numpy==2.1.2
 packaging==24.1

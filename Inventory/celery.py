@@ -16,10 +16,13 @@ app.autodiscover_tasks()
 def debug_task(self):
     print(f'Request: {self.request!r}')
 
+# schedule for periodic tasks
+from celery.schedules import crontab
+
 # Define the schedule for periodic tasks
 app.conf.beat_schedule = {
-    'generate-report-every-day': {
-        'task': 'your_app_name.tasks.generate_supplier_performance_report',  # Update with your app name
-        'schedule': crontab(hour=0, minute=0),  # Runs daily at midnight
+    'generate-report-every-week': {
+        'task': 'inventoryapp.tasks.generate_supplier_performance_report',  # Update with your app name
+        'schedule': crontab(hour=0, minute=0, day_of_week='monday'),  # Runs every Monday at midnight
     },
 }

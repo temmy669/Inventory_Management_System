@@ -15,7 +15,7 @@ def generate_inventory_report():
     low_stock_inventory = Inventory.objects.filter(quantity__lt=low_stock_threshold) 
 
     # Convert QuerySet to a list of dictionaries
-    low_stock_products = list(low_stock_inventory.values('product__name', 'quantity'))
+    low_stock_products = list(low_stock_inventory.values('productID__name', 'quantity'))
 
     report = {
         'low_stock_products': low_stock_products,
