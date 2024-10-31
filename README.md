@@ -20,7 +20,7 @@ This is a RESTful API for an Inventory Management System that allows users to ma
 - Django
 - Django REST Framework
 - PostgreSQL
-- Docker (optional)
+- Docker 
 - Git
 
 ## Features
