@@ -1,5 +1,5 @@
 from celery import shared_task
-from inventoryapp.models import Inventory, InventoryReport, SupplierPerformanceReport 
+from inventoryapp.models import Inventory, InventoryReport, SupplierPerformanceReport, Notification
 from suppliers.models import Supplier
 from django.utils import timezone
 from django.core.mail import send_mail
@@ -27,15 +27,12 @@ def generate_inventory_report():
 
     # Trigger an email alert if there are low-stock products
 
-    if low_stock_products:  # Check if the list is not empty
-        send_mail(
-            subject='Low Stock Alert',
-            message='Some products are running low on stock.',
-            from_email=settings.LOW_STOCK_ALERT_EMAIL,
-            recipient_list=settings.INVENTORY_MANAGER_EMAILS,
-        )
-
-    
+    if low_stock_products:
+        for product in low_stock_products:
+            # Create a notification without a user association
+            Notification.objects.create(
+                message=f"{product['product__name']} is running low on stock (Quantity: {product['quantity']})."
+            )  
     
     return report
 

@@ -148,15 +148,6 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 
 
-#Email Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_PORT = 587 
-EMAIL_USE_TLS = True  
-EMAIL_HOST_USER = 'favouradebose@gmail.com.com'
-EMAIL_HOST_PASSWORD = 'temmy669'
-DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'
-
 #low stock alert data
 LOW_STOCK_ALERT_EMAIL = 'alert@gmail.com'
 INVENTORY_MANAGER_EMAILS = ['inventory_manager@yourapp.com']

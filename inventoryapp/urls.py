@@ -4,6 +4,7 @@ from . import views
 
 router = DefaultRouter()
 router.register(r'inventory', views.InventoryViewSet)
+router.register(r'notifications', views.NotificationViewSet, basename='notification')
 
 urlpatterns = [
     path('', include(router.urls)),
