@@ -174,11 +174,11 @@ To access the endpoints on the live application, please follow these steps:
 
    - **API Endpoints**:  
      Append specific API paths after `/api/`, such as:  
-     [https://inventory-management-system-nmrq.onrender.com/api/v1/products/](https://inventory-management-system-nmrq.onrender.com/api/products/)
+     [https://inventory-management-system-nmrq.onrender.com/api/v1/products/](https://inventory-management-system-nmrq.onrender.com/api/v1/products/)
 
 3. **Sample Endpoint Access**  
    To access the "products" endpoint in your API, use the following URL:  
-   [https://inventory-management-system-nmrq.onrender.com/api/v1/products/](https://inventory-management-system-nmrq.onrender.com/api/products/)
+   [https://inventory-management-system-nmrq.onrender.com/api/v1/products/](https://inventory-management-system-nmrq.onrender.com/api/v1/products/)
 
 4. **Further Instructions**  
    For other pages or actions, simply append the corresponding endpoint path to the base URL.
