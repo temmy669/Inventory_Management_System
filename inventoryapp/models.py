@@ -7,7 +7,7 @@ class Inventory(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.product.name} - Quantity: {self.quantity}"
+        return f"{self.productID.name} - Quantity: {self.quantity}"
     
 # Model to keep a historical record of the Inventory reports generated
 class InventoryReport(models.Model):
