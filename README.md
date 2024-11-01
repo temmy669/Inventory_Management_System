@@ -5,9 +5,10 @@
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Setup Instructions](#setup-instructions)
-- [Api Interaction](#API-INTERACTION)
+- [API Interaction](#api-interacion)
 - [API Endpoints](#api-endpoints)
 - [Testing](#testing)
+- [Hosting](#hosting-instructions)
 
 ## Introduction
 
@@ -122,7 +123,7 @@ Start the development server to run your API.
 Your API should now be accessible at `http://127.0.0.1:8000/`
 
 
-## API INTERRACTION
+## API Interaction
 
 You can use tools like Postman or curl to interact with and test the API endpoints.
 
@@ -146,7 +147,7 @@ The following endpoints are available in the Inventory Management System API:
 | `/api/v1/inventory/generate-supplier-report/`| POST | To generate supplier performance reports            |
 | `/api/v1/notifications/`           |  GET    |   To list the otifications                                 |  
 
-### Full API documentation can be found at `http://127.0.0.1:8000/swagger/`
+### Full API documentation can be found at `http://127.0.0.1:8000/swagger/`, but the yaml file is also included in the repository incase you have any trouble viewing it at the url.
 Ensure that the Django server is running
 
 ## Testing
@@ -157,9 +158,29 @@ This project includes tests to ensure the functionality and reliability of the I
 To run the test use the command `python manage.py appname.test`
   replace appname with the name of the application in the project you want to test.
 
+## Hosting Instructions
 
+To access the endpoints on the live application, please follow these steps:
 
+1. **Base URL**  
+   The application is hosted at:  
+   [https://inventory-management-system-nmrq.onrender.com](https://inventory-management-system-nmrq.onrender.com)
 
+2. **Accessing Endpoints**  
+   Since the base URL ([https://inventory-management-system-nmrq.onrender.com](https://inventory-management-system-nmrq.onrender.com)) does not display specific content on its own, append endpoint paths to view specific functionalities. For example:
+   - **Admin Panel**:  
+     [https://inventory-management-system-nmrq.onrender.com/admin](https://inventory-management-system-nmrq.onrender.com/admin)  
+     _(Admin credentials are required for access)_
 
+   - **API Endpoints**:  
+     Append specific API paths after `/api/`, such as:  
+     [https://inventory-management-system-nmrq.onrender.com/api/v1/products/](https://inventory-management-system-nmrq.onrender.com/api/v1/products/)
+
+3. **Sample Endpoint Access**  
+   To access the "products" endpoint in your API, use the following URL:  
+   [https://inventory-management-system-nmrq.onrender.com/api/v1/products/](https://inventory-management-system-nmrq.onrender.com/api/v1/products/)
+
+4. **Further Instructions**  
+   For other pages or actions, simply append the corresponding endpoint path to the base URL.
 
 
