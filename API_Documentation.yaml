@@ -1,0 +1,505 @@
+swagger: '2.0'
+info:
+  title: API DOCUMENTATION FOR INVENTORY MANAGEMENT SYSTEM
+  description: The Inventory Management System API allows efficient management of products, suppliers, and stock levels. It includes endpoints for creating, updating, viewing, and deleting product and supplier records. Features include real-time stock tracking, background processing for automated tasks.
+  termsOfService: https://www.google.com/policies/terms/
+  contact:
+    email: temmy@waje.com
+  license:
+    name: BSD License
+  version: v1
+host: 127.0.0.1:8000
+schemes:
+  - http
+basePath: /api/v1
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+  - Basic: []
+paths:
+  /inventory/:
+    get:
+      operationId: inventory_list
+      description: ''
+      parameters:
+        - name: page
+          in: query
+          description: A page number within the paginated result set.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Inventory'
+      tags:
+        - inventory
+    post:
+      operationId: inventory_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Inventory'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Inventory'
+      tags:
+        - inventory
+    parameters: []
+  /inventory/generate-inventory-report/:
+    post:
+      operationId: inventory_generate_inventory_report
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Inventory'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Inventory'
+      tags:
+        - inventory
+    parameters: []
+  /inventory/generate-supplier-report/:
+    post:
+      operationId: inventory_generate_supplier_report
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Inventory'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Inventory'
+      tags:
+        - inventory
+    parameters: []
+  /inventory/{id}/:
+    get:
+      operationId: inventory_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Inventory'
+      tags:
+        - inventory
+    put:
+      operationId: inventory_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Inventory'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Inventory'
+      tags:
+        - inventory
+    patch:
+      operationId: inventory_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Inventory'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Inventory'
+      tags:
+        - inventory
+    delete:
+      operationId: inventory_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - inventory
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this inventory.
+        required: true
+        type: integer
+  /notifications/:
+    get:
+      operationId: notifications_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - notifications
+    parameters: []
+  /products/:
+    get:
+      operationId: products_list
+      description: ''
+      parameters:
+        - name: name
+          in: query
+          description: name
+          required: false
+          type: string
+        - name: price
+          in: query
+          description: price
+          required: false
+          type: string
+        - name: search
+          in: query
+          description: A search term.
+          required: false
+          type: string
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
+          required: false
+          type: string
+        - name: page
+          in: query
+          description: A page number within the paginated result set.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Product'
+      tags:
+        - products
+    post:
+      operationId: products_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Product'
+      tags:
+        - products
+    parameters: []
+  /products/{id}/:
+    get:
+      operationId: products_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Product'
+      tags:
+        - products
+    put:
+      operationId: products_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Product'
+      tags:
+        - products
+    patch:
+      operationId: products_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Product'
+      tags:
+        - products
+    delete:
+      operationId: products_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - products
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this product.
+        required: true
+        type: integer
+  /suppliers/:
+    get:
+      operationId: suppliers_list
+      description: ''
+      parameters:
+        - name: page
+          in: query
+          description: A page number within the paginated result set.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Supplier'
+      tags:
+        - suppliers
+    post:
+      operationId: suppliers_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Supplier'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Supplier'
+      tags:
+        - suppliers
+    parameters: []
+  /suppliers/{id}/:
+    get:
+      operationId: suppliers_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Supplier'
+      tags:
+        - suppliers
+    put:
+      operationId: suppliers_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Supplier'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Supplier'
+      tags:
+        - suppliers
+    patch:
+      operationId: suppliers_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Supplier'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Supplier'
+      tags:
+        - suppliers
+    delete:
+      operationId: suppliers_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - suppliers
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this supplier.
+        required: true
+        type: integer
+  /upload-product/:
+    post:
+      operationId: upload-product_create
+      description: ''
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - upload-product
+    parameters: []
+definitions:
+  Inventory:
+    required:
+      - quantity
+      - productID
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      quantity:
+        title: Quantity
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      last_updated:
+        title: Last updated
+        type: string
+        format: date-time
+        readOnly: true
+      productID:
+        title: ProductID
+        type: integer
+  Product:
+    required:
+      - name
+      - price
+      - supplier
+    type: object
+    properties:
+      name:
+        title: Name
+        type: string
+        maxLength: 255
+        minLength: 1
+      description:
+        title: Description
+        type: string
+      price:
+        title: Price
+        type: string
+        format: decimal
+      supplier:
+        title: Supplier
+        type: integer
+      supplier_name:
+        title: Supplier name
+        type: string
+        readOnly: true
+        minLength: 1
+  Supplier:
+    required:
+      - name
+      - contact_info
+    type: object
+    properties:
+      id:
+        title: ID
+        type: integer
+        readOnly: true
+      name:
+        title: Name
+        type: string
+        maxLength: 100
+        minLength: 1
+      contact_info:
+        title: Contact info
+        type: string
+        minLength: 1
