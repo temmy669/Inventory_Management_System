@@ -147,7 +147,7 @@ The following endpoints are available in the Inventory Management System API:
 | `/api/v1/inventory/generate-supplier-report/`| POST | To generate supplier performance reports            |
 | `/api/v1/notifications/`           |  GET    |   To list the otifications                                 |  
 
-### Full API documentation can be found at `http://127.0.0.1:8000/swagger/`
+### Full API documentation can be found at `http://127.0.0.1:8000/swagger/`, but the yaml file is also included in the repository incase you have any trouble viewing it at the url.
 Ensure that the Django server is running
 
 ## Testing
