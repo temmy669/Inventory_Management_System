@@ -23,12 +23,14 @@ services:
   web:
     build: .
     command: >
-      sh -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+      sh -c "python3 manage.py migrate && python3 manage.py collectstatic --noinput && python3 manage.py runserver 0.0.0.0:8000"
     environment:
       DATABASE_USER: ${DATABASE_USER}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABSE_PORT}
+      SECRET_KEY: ${SECRET_KEY}
     volumes:
       - .:/app
     depends_on:
