@@ -9,9 +9,9 @@ import pandas as pd
 from django.http import JsonResponse
 
 # Create your views here.
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+# class ProductViewSet(viewsets.ModelViewSet):
+#     queryset = Product.objects.all()
+#     serializer_class = ProductSerializer
 
 @api_view(['POST'])
 def upload_product_csv(request):
