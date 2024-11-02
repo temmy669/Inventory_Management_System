@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'inventoryapp',
     'products',
     'suppliers',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -148,9 +149,6 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 
 
-#low stock alert data
-LOW_STOCK_ALERT_EMAIL = 'alert@gmail.com'
-INVENTORY_MANAGER_EMAILS = ['inventory_manager@yourapp.com']
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',

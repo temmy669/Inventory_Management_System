@@ -9,9 +9,6 @@ import pandas as pd
 from django.http import JsonResponse
 
 # Create your views here.
-# class ProductViewSet(viewsets.ModelViewSet):
-#     queryset = Product.objects.all()
-#     serializer_class = ProductSerializer
 
 @api_view(['POST'])
 def upload_product_csv(request):
@@ -82,7 +79,7 @@ def upload_product_csv(request):
         return JsonResponse({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
 class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().order_by('id')
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['name', 'price']  # Fields you want to allow filtering on
