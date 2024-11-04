@@ -8,7 +8,7 @@ from rest_framework.decorators import action
 class InventoryViewSet(viewsets.ModelViewSet):
 
     #retrieve all objects from the inventory class 
-    queryset = Inventory.objects.all()
+    queryset = Inventory.objects.all().order_by('id')
   
     serializer_class = InventorySerializer
 
