@@ -60,7 +60,7 @@ Create a virtual environment and activate it.
   ```bash
   venv/scripts/activate
   ```
-#### On MacOS:
+#### On MacOS/Linux:
 - **Create**:
   ```bash
   python3 -m venv venv
