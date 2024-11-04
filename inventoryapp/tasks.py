@@ -22,17 +22,21 @@ def generate_inventory_report():
         'timestamp': timezone.now().isoformat()
     }
 
-    #Save the report to the database
-    InventoryReport.objects.create(report_data=report)
+    #convert report to json string
+    report__json = json.dumps(report)
 
-    # Trigger an email alert if there are low-stock products
+    #Save the report to the database
+    InventoryReport.objects.create(report_data=report__json)
+
+    
 
     if low_stock_products:
         for product in low_stock_products:
             # Create a notification without a user association
-            Notification.objects.create(
-                message=f"{product['product__name']} is running low on stock (Quantity: {product['quantity']})."
+           notification =  Notification.objects.create(
+                message=f"{product['productID__name']} is running low on stock (Quantity: {product['quantity']})."
             )  
+        print(notification.message)
     
     return report
 

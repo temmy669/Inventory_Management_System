@@ -36,14 +36,14 @@ class InventoryViewSetTestCase(APITestCase):
     def test_generate_inventory_report(self):
         # Test action to generate inventory report
         url = reverse('inventory-generate-inventory-report')
-        response = self.client.post(url)
+        response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['status'], "Inventory Report generation initiated!")
 
     def test_generate_supplier_report(self):
         # Test action to generate supplier performance report
         url = reverse('inventory-generate-supplier-report')
-        response = self.client.post(url)
+        response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['status'], "Supplier Report generation initiated!")
 
