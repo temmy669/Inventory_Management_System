@@ -75,7 +75,7 @@ paths:
         - inventory
     parameters: []
   /inventory/generate-inventory-report/:
-    post:
+    get:
       operationId: inventory_generate_inventory_report
       description: ''
       parameters:
@@ -93,7 +93,7 @@ paths:
         - inventory
     parameters: []
   /inventory/generate-supplier-report/:
-    post:
+    get:
       operationId: inventory_generate_supplier_report
       description: ''
       parameters:
