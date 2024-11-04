@@ -44,7 +44,7 @@ Follow these steps to set up the project locally:
 ### 1. Clone the Repository
 
 ```bash
-git clone git@github.com:temmy669/InventoryApp.git
+git clone git@github.com:temmy669/Inventory_Management_System.git
 cd Inventory
 ```
 ### 2. Create and Activate a Virtual Environment
@@ -60,7 +60,7 @@ Create a virtual environment and activate it.
   ```bash
   venv/scripts/activate
   ```
-#### On MacOS:
+#### On MacOS/Linux:
 - **Create**:
   ```bash
   python3 -m venv venv
@@ -143,11 +143,11 @@ The following endpoints are available in the Inventory Management System API:
 | `/api/v1/suppliers/{id}/`         | DELETE      | Remove a supplier.                                    | 
 | `/api/v1/inventory/`              | GET         | Check inventory levels for each product.              | 
 | `/api/v1/inventory/`              | POST        | Update inventory levels (product ID, quantity).       | 
-| `/api/v1/inventory/generate-inventory-report/`| POST | To generate inventory reports                     |
-| `/api/v1/inventory/generate-supplier-report/`| POST | To generate supplier performance reports            |
+| `/api/v1/inventory/generate-inventory-report/`| GET | To generate inventory reports                     |
+| `/api/v1/inventory/generate-supplier-report/`| GET | To generate supplier performance reports            |
 | `/api/v1/notifications/`           |  GET    |   To list the otifications                                 |  
 
-### Full API documentation can be found at `http://127.0.0.1:8000/swagger/`, but the yaml file is also included in the repository incase you have any trouble viewing it at the url.
+### Full API documentation can be found at `http://127.0.0.1:8000/swagger/`, or `http://127.0.0.1:8000/redoc/` but the yaml file is also included in the repository incase you have any trouble viewing it at the url.
 Ensure that the Django server is running
 
 ## Testing
@@ -180,7 +180,12 @@ To access the endpoints on the live application, please follow these steps:
    To access the "products" endpoint in your API, use the following URL:  
    [https://inventory-management-system-nmrq.onrender.com/api/v1/products/](https://inventory-management-system-nmrq.onrender.com/api/v1/products/)
 
-4. **Further Instructions**  
+4. **To Access Documentation**
+   To access the documention for the APIs on the live url you can visit either:
+    [https://inventory-management-system-nmrq.onrender.com/swagger](https://inventory-management-system-nmrq.onrender.com/swagger)
+    [https://inventory-management-system-nmrq.onrender.com/redoc](https://inventory-management-system-nmrq.onrender.com/redoc)
+
+6. **Further Instructions**  
    For other pages or actions, simply append the corresponding endpoint path to the base URL.
 
 
