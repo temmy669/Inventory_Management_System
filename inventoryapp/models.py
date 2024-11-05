@@ -2,7 +2,7 @@ from django.db import models
 from products.models import Product
 
 class Inventory(models.Model):
-    productID = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='inventory_levels')
+    productID = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='inventory')
     quantity = models.IntegerField()
     last_updated = models.DateTimeField(auto_now=True)
 
