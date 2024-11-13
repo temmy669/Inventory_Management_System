@@ -1,12 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from . import views
+from .views import upload_product_csv, ProductViewSet
 
 router = DefaultRouter()
 
-router.register(r'products', views.ProductViewSet)
+router.register(r'products', ProductViewSet)
 
 urlpatterns= [
     path('', include(router.urls)),
-    path('upload-product/', views.upload_product_csv, name='upload-product-csv' )
+    path('upload-product/', upload_product_csv.as_view(), name='upload-product-csv' )
 ]

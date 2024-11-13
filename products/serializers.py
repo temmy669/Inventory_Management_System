@@ -23,3 +23,6 @@ class ProductSerializer(serializers.ModelSerializer):
             setattr(instance, attr, value)  # Update other fields
         instance.save()  # Save the instance
         return instance
+    
+class ProductUploadSerializer(serializers.Serializer):
+    file = serializers.FileField()
