@@ -175,3 +175,8 @@ REST_FRAMEWORK = {
 CSRF_TRUSTED_ORIGINS = [
     'https://inventory-management-system-nmrq.onrender.com'
 ]
+
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+]

@@ -25,4 +25,4 @@ class ProductSerializer(serializers.ModelSerializer):
         return instance
     
 class ProductUploadSerializer(serializers.Serializer):
-    file = serializers.FileField()
+    file = serializers.FileField(max_length=None, allow_empty_file=False)
